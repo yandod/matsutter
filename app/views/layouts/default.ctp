@@ -52,19 +52,11 @@
 <div class="subsection_body">
 	<ul class="status">
 		<li>
-			<span class="label"><a href="#">あなたがフォロー</a></span>
+			<span class="label"><a href="#">あなたのつぶやき</a></span>
 			<span>999</span>
 		</li>
 		<li>
-			<span class="label"><a href="#">あなたがフォロー</a></span>
-			<span>999</span>
-		</li>
-		<li>
-			<span class="label"><a href="#">あなたがフォロー</a></span>
-			<span>999</span>
-		</li>
-		<li>
-			<span class="label"><a href="#">あなたがフォロー</a></span>
+			<span class="label"><a href="#">みんなのつぶやき</a></span>
 			<span>999</span>
 		</li>
 	</ul>

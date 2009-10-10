@@ -1,6 +1,8 @@
 <?php
 class PostsController extends AppController
 {
+  var $components = array('RequestHandler');
+  var $helpers = array('Ajax','Javascript');
   //var $scaffold;
   function index()
   {
@@ -22,8 +24,9 @@ class PostsController extends AppController
         )
       );
       $ret = $this->Post->save($new_data);
-      if ($ret) {
-        $this->redirect('index');
+      if ($ret || $this->RequestHandler->isAjax()) {
+        $this->index();
+        $this->render('index');
       }
     }
   }
