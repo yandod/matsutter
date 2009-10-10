@@ -2,16 +2,30 @@
 class PostsController extends AppController
 {
   var $components = array('RequestHandler');
-  var $helpers = array('Ajax','Javascript');
-  //var $scaffold;
+  var $helpers = array('Paginator','Ajax','Javascript','Gravatar');
+  var $paginate = array(
+    'order' => array('Post.created desc'),
+    'limit' => '10'
+  );
   function index()
   {
-    $param = array(
-      'order' => array('Post.created desc')
-    );
+    $post_data = $this->paginate('Post');
     
-    $post_data = $this->Post->find('all',$param);
+    $param = array(
+      'fields' => a('count(*)'),
+      'conditions' => aa('Post.user_id',1),
+    );
+    $my_count = $this->Post->find('all',$param);
+
+    $param = array(
+      'fields' => a('count(*)'),
+    );
+    $all_count = $this->Post->find('all',$param);
+
+    $this->set('my_count',$my_count[0][0]['count(*)']);
+    $this->set('all_count',$all_count[0][0]['count(*)']);
     $this->set('post_data',$post_data);
+    $this->render('index');
   }
   
   function add()
@@ -26,7 +40,6 @@ class PostsController extends AppController
       $ret = $this->Post->save($new_data);
       if ($ret || $this->RequestHandler->isAjax()) {
         $this->index();
-        $this->render('index');
       }
     }
   }

@@ -35,17 +35,6 @@
 	<a href="#">プロフィール</a>
 	<h3>ようこそ！</h3>
 </div>
-<div class="subsection_body">
-	<p>こんにちはこんにちは！</p>
-</div>
-<div class="subsection_title">
-	<a href="#">プロフィール</a>
-	<h3>ようこそ！</h3>
-</div>
-<div class="subsection_body">
-	<img alt="左寄せはimgLね。" class="imgL" width="30" height="30" src="img/friend_icon.png?small" />
-	<p>こんにちはこんにちは！</p>
-</div>
 <div class="subsection_title">
 	<h3>ステータス</h3>
 </div>
@@ -53,11 +42,11 @@
 	<ul class="status">
 		<li>
 			<span class="label"><a href="#">あなたのつぶやき</a></span>
-			<span>999</span>
+			<span><?php echo $my_count ?></span>
 		</li>
 		<li>
 			<span class="label"><a href="#">みんなのつぶやき</a></span>
-			<span>999</span>
+			<span><?php echo $all_count ?></span>
 		</li>
 	</ul>
 </div>

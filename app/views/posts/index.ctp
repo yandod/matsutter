@@ -15,6 +15,7 @@ echo $javascript->link('scriptaculous');
         'controller' => 'posts',
         'action' => 'add', 
       ),
+      'condition' => '$("PostBody").value != ""',
       'loading' => '$("PostSubmit").disabled = true',
       'complete' => '$("PostBody").value = "";$("PostSubmit").disabled = false'
     )
@@ -23,7 +24,6 @@ echo $javascript->link('scriptaculous');
 ?>
 <div id="post">
 <span class="whatdoing">イマナニシテル？</span><br/>
-<span class="textCount" id="js_textcount">140</span>
 <?php echo $form->textarea('Post.body',aa('rows','3','cols','60')) ?>
 <p class="btn btnSpace">
 <?php echo $form->submit('つぶやく',aa('id','PostSubmit')) ?>
@@ -36,11 +36,12 @@ echo $javascript->link('scriptaculous');
 <?php foreach ($post_data as $row): ?>	
 		<tr>
 			<td class="friendicon">
-				<?php echo $html->image('friend_icon.png') ?>
+				<?php //echo $html->image('http://www.gravatar.com/avatar/'.md5($row['User']['mail']).'?s=40&r=G') ?>
+				<?php echo $gravatar->image($row['User']['mail']) ?>
 			</td>
 			<td>
 				<p class="murmur">
-				<?php echo $row['Post']['user_id'] ?>
+				<?php echo $row['User']['name'] ?>
 				
 				<?php echo $row['Post']['body'] ?>
                 <span class="entry-meta">
@@ -55,8 +56,9 @@ echo $javascript->link('scriptaculous');
 		</tr>
 <?php endforeach; ?>
 	</table>
-<p class="paraR bottombtn"><a href="#next">前のページへ</a></p>
-<p class="paraL bottombtn"><a href="#rss">RSS</a></p>
+
+<?php echo $paginator->next('次のページへ',aa('class','paraR bottombtn','url',aa('action','index'))) ?>
+<?php echo $paginator->prev('前のページへ',aa('class','paraL bottombtn')) ?>
 <?php if (!$ajax->isAjax()): ?>
 <!-- / #timeline --></div>
 <!-- / #main --></div>
