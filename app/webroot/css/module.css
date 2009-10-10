@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* ===================================================================
+CSS information
+
+ file name  :module.css
+ author     :yourName (admin)
+ style info :共通（ヘッダー、フッター）
+=================================================================== */
+
+/* -----------------------------------------------------------
+	#header
+		ヘッダー
+----------------------------------------------------------- */
+#header {
+	margin:10px 0;
+	position:relative;
+}
+ul#guideNav{
+	position:absolute;
+	top:15px;
+	right:0;
+	width:200px;
+	height:30px;
+	background-color:white;
+}
+ul#guideNav li{ 
+	float:left;
+	padding:5px 10px;
+	font-size:96%;
+}
+/* -----------------------------------------------------------
+	#footer
+		フッター
+----------------------------------------------------------- */
+#footer {
+	clear:both;
+	background-color:white;
+	width:550px;
+	margin-bottom:10px;
+}
+#footer p{
+	padding:5px;
+}

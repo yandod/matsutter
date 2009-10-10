@@ -1,0 +1,8 @@
+.DS_Store
+.settings
+.project
+.svn
+app/config/core.php
+app/config/database.php
+app/plugins/debug_kit/*
+app/tmp/*

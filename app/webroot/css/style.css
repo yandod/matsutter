@@ -1,0 +1,288 @@
+@charset "utf-8";
+/* ===================================================================
+CSS information
+
+ file name  :style.css
+ author     :yourName (admin)
+ style info :コンテンツエリア関係 他
+ 
+このスタイルシートの構成
+ 基本設定、リンクカラー、レイアウト、横幅設定など
+ 汎用class
+ #navSkip
+ #page
+  #contents
+   #main
+   #sub
+ 
+=================================================================== */
+
+/*----------------------------------------------------
+	基本設定、リンクカラー、レイアウト、横幅設定など
+----------------------------------------------------*/
+body {
+	background:#E499FF url(../img/share/bg.gif) no-repeat fixed left top;
+}
+
+a:link {
+	color:#AA00AA;
+	text-decoration:none;
+}
+
+a:visited {
+	color:#AA00AA;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active {
+}
+
+#contents,
+#page {
+	width: 755px;
+}
+
+#sub,
+#main,
+#contents {
+	float: left;
+}
+
+#main {
+	width: 640px;
+}
+
+#sub {
+	width: 300px;
+}
+
+
+/*----------------------------------------------------
+	汎用class
+----------------------------------------------------*/
+.imgR,.paraR {
+	float: right;
+	margin: 0 0 10px 10px;
+}
+
+.imgL,.paraL {
+	float: left;
+	margin: 0 10px 10px 0;
+}
+
+.btn {
+	text-align: center;
+}
+
+/*
+	clearfix
+*/
+#hoge:after {
+	content: "."; display: block; visibility: hidden; height: 0.1px; font-size: 0.1em; line-height: 0; clear: both;
+}
+
+
+/*----------------------------------------------------
+	#navSkip (NavigationSkip)
+----------------------------------------------------*/
+span#navSkip {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+/*----------------------------------------------------
+	#page
+----------------------------------------------------*/
+#page {
+	margin: 0 auto;
+	text-align: left;
+}
+
+
+/*----------------------------------------------------
+	#contents
+----------------------------------------------------*/
+#contents {
+	background:url(../img/share/up_arrow.gif) no-repeat 20px top;
+	padding-top:10px;
+}
+
+
+/*----------------------------------------------------
+	#main
+		メイン
+----------------------------------------------------*/
+#main {
+	background-color:white;
+	width:550px;
+}
+#wrapper {
+	float:left;
+	width:555px;
+	padding:5px 0;
+}
+p.bottombtn{
+	border:1px solid #CCCCCC;
+	padding:3px 10px;
+}
+
+/* -----------------------------------------------------------
+	#post　投稿部分
+----------------------------------------------------------- */
+#post{
+	margin:5px 20px;
+	position:relative;
+	font-size:176%;
+}
+p.whatdoing{
+	font-weight:bold;
+}
+span.textCount{
+	color:#CCCCCC;
+	font-weight:bold;
+	font-style: italic;
+	position:absolute;
+	top:0;
+	right:5px;
+}
+textarea.message{
+	width:500px;
+	height:3em;
+}
+p.btnSpace{
+	margin:10px auto 20px;
+}
+input.formBtn{
+	border:1px solid #000000;
+	background-color:#666666;
+	color:#FFFFFF;
+	padding:3px 5px;
+}
+
+ul.tabNav{ margin:0 30px; }
+
+ul.tabNav li{ float: left;margin-left:-1px;margin-bottom:1px; }
+
+ul.tabNav li a.on,ul.tabNav li a.on:link,ul.tabNav li a.on:active,ul.tabNav li a.on:visited,ul.tabNav li a.on:hover {
+	border-top:1px solid #999999;
+	border-left:1px solid #999999;
+	border-right:1px solid #999999;
+	border-bottom:1px solid #FFFFFF;
+	background-color:#FFFFFF;
+	color:#333333;
+	padding:3px 8px;
+}
+
+ul.tabNav li a,ul.tabNav li a:link,ul.tabNav li a:active,ul.tabNav li a:visited {
+	border:1px solid #999999;
+	background-color:#CCCCCC;
+	color:#333333;
+	padding:3px 8px;
+}
+ul.tabNav li a:hover {
+	text-decoration:none;
+	color:#000000;
+	background-color:#666666;
+}
+
+/* -----------------------------------------------------------
+	#timeline　表示部分
+----------------------------------------------------------- */
+div#timeline{
+	clear:both;
+	margin-top:-1px;
+	border-top:1px solid #666666;
+	padding:10px;
+}
+table.statuslist{
+	border-collapse: collapse;
+	margin:10px 0;
+	width:100%
+}
+table.statuslist tr{
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+table.statuslist tr td.friendicon{
+	width:50px;
+}
+table.statuslist tr td p.murmur{
+	margin:2px;
+}
+table.statuslist tr td.friendicon img.friendicon{
+	margin:5px;
+}
+table.statuslist tr td.action{
+	width:20px;
+}
+table.statuslist tr td.action img.icon16{
+	margin:0 5px;
+}
+.entry-meta {
+	font-style: italic;
+}
+
+/* permalink */
+#permalink {
+	padding: 15px;
+}
+#status,
+#status-user {
+}
+#status {
+}
+#status p {
+	font-size: 2.1em;
+	margin-bottom: 5px;
+}
+#status .entry-meta{
+	font-size: 1.2em;
+}
+#status-user {
+	margin-top: 10px;
+	border-top: solid 1px #ccc;
+	padding-top: 10px;
+}
+#status-user img {
+	float: left;
+	margin-right: 20px;
+}
+#status-user p {
+	font-size: 2.0em;
+}
+
+/* -----------------------------------------------------------
+	#sub
+		サイドバー、サブ
+----------------------------------------------------------- */
+#sub {
+	float:right;
+	width:195px;
+	margin:5px 0;
+	padding:5px 0;
+	border:1px solid #999999;
+	font-size:86%;
+	background-color:#95F0FF;
+}
+div.subsection_title{
+	margin:10px;
+	clear:both;
+	border-bottom:1px solid #000000;
+}
+div.subsection_title a{
+	float:right;
+}
+div.subsection_body{
+	margin:10px;
+}
+div.subsection_body ul.status{ }
+div.subsection_body ul.status li{ text-align:right; }
+div.subsection_body ul.status li span.label{ float:left; }
+
+
