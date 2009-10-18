@@ -7,4 +7,12 @@ class PostsController extends AppController {
     $this->set('posts', $this->Post->find('all'));
   }
 
+  function add() {
+    if (!empty($this->data)) {
+      if ($this->Post->save($this->data)) {
+        $this->flash('Your post has been saved.','/posts');
+      }
+    }
+  }
+
 }
