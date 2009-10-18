@@ -10,3 +10,6 @@
   </tr>
 <?php endforeach; ?>
 </table>
+<?php echo $paginator->prev() ?> &nbsp;
+<?php echo $paginator->numbers() ?> &nbsp;
+<?php echo $paginator->next() ?>
