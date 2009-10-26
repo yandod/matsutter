@@ -12,6 +12,7 @@ class PostsController extends AppController {
 
   function add() {
     if (!empty($this->data)) {
+      $this->data['Post']['user_id'] = 1;
       if ($this->Post->save($this->data)) {
         $this->flash('Your post has been saved.','/posts');
       }
