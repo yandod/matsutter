@@ -20,7 +20,7 @@ echo $form->create('Post',array('url' => '/posts/add'));
 </td>
 <td>
 <p class="murmur">
-<?php echo $row['Post']['user_id'] ?>
+<?php echo $row['User']['name'] ?>
  
 <?php echo $row['Post']['body'] ?>
                 <span class="entry-meta">
