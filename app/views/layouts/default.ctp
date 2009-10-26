@@ -42,11 +42,11 @@
 <ul class="status">
 <li>
 <span class="label"><a href="#">あなたのつぶやき</a></span>
-<span>999</span>
+<span><?php echo $my_count?></span>
 </li>
 <li>
 <span class="label"><a href="#">みんなのつぶやき</a></span>
-<span>999</span>
+<span><?php echo $all_count ?></span>
 </li>
 </ul>
 </div>

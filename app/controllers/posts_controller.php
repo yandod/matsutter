@@ -7,6 +7,14 @@ class PostsController extends AppController {
     'limit' => 10
   );
   function index() {
+    $param = array(
+      'conditions' => aa('Post.user_id',1),
+    );
+    $my_count = $this->Post->find('count',$param);
+    $all_count = $this->Post->find('count');
+ 
+    $this->set('my_count',$my_count);
+    $this->set('all_count',$all_count);
     $this->set('posts', $this->paginate('Post'));
   }
 
