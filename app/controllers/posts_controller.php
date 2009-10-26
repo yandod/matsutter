@@ -12,18 +12,13 @@ class PostsController extends AppController
     $post_data = $this->paginate('Post');
     
     $param = array(
-      'fields' => a('count(*)'),
       'conditions' => aa('Post.user_id',1),
     );
-    $my_count = $this->Post->find('all',$param);
+    $my_count = $this->Post->find('count',$param);
+    $all_count = $this->Post->find('count');
 
-    $param = array(
-      'fields' => a('count(*)'),
-    );
-    $all_count = $this->Post->find('all',$param);
-
-    $this->set('my_count',$my_count[0][0]['count(*)']);
-    $this->set('all_count',$all_count[0][0]['count(*)']);
+    $this->set('my_count',$my_count);
+    $this->set('all_count',$all_count);
     $this->set('post_data',$post_data);
     $this->render('index');
   }
