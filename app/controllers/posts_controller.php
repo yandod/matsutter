@@ -1,7 +1,8 @@
 <?php
 class PostsController extends AppController {
   var $name = 'Posts';
-  var $helpers = array('Gravatar');
+  var $components = array('RequestHandler');
+  var $helpers = array('Paginator','Ajax','Javascript','Gravatar');
   //var $scaffold;
   var $paginate = array(
     'order' => array('Post.id' => 'DESC'),
@@ -17,15 +18,22 @@ class PostsController extends AppController {
     $this->set('my_count',$my_count);
     $this->set('all_count',$all_count);
     $this->set('posts', $this->paginate('Post'));
+    $this->render('index');
   }
 
-  function add() {
-    if (!empty($this->data)) {
-      $this->data['Post']['user_id'] = 1;
-      if ($this->Post->save($this->data)) {
-        $this->flash('Your post has been saved.','/posts');
+  function add()
+  {
+    if ($this->data) {
+      $new_data = array(
+        'Post' => array(
+          'user_id' => 1,
+          'body' => $this->data['Post']['body']
+        )
+      );
+      $ret = $this->Post->save($new_data);
+      if ($ret || $this->RequestHandler->isAjax()) {
+        $this->index();
       }
     }
   }
-
 }

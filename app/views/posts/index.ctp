@@ -1,7 +1,26 @@
-﻿<div id="wrapper">
-<div id="main">
+﻿<?php if (!$ajax->isAjax()): ?>
 <?php
-echo $form->create('Post',array('url' => '/posts/add'));
+echo $javascript->link('prototype');
+echo $javascript->link('scriptaculous');
+?>
+<div id="wrapper">
+<div id="main">
+<?php echo $ajax->form(
+  array(
+'type' => 'post',
+'options' => array(
+      'model' => 'Post',
+      'update' => 'timeline',
+      'url' => array(
+        'controller' => 'posts',
+        'action' => 'add',
+      ),
+      'condition' => '$("PostBody").value != ""',
+      'loading' => '$("PostSubmit").disabled = true',
+      'complete' => '$("PostBody").value = "";$("PostSubmit").disabled = false'
+    )
+  )
+);
 ?>
 <div id="post">
 <span class="whatdoing">イマナニシテル？</span><br/>
@@ -12,6 +31,7 @@ echo $form->create('Post',array('url' => '/posts/add'));
 </div>
 <?php echo $form->end() ?>
 <div id="timeline">
+<?php endif; ?>
 <table class="statuslist">
 <?php foreach ($posts as $row): ?>
 <tr>
@@ -39,6 +59,8 @@ echo $form->create('Post',array('url' => '/posts/add'));
  
 <?php echo $paginator->next('次のページへ',aa('class','paraR bottombtn','url',aa('action','index'))) ?>
 <?php echo $paginator->prev('前のページへ',aa('class','paraL bottombtn')) ?>
+<?php if (!$ajax->isAjax()): ?>
 <!-- / #timeline --></div>
 <!-- / #main --></div>
 <!-- / #wrapper --></div>
+<?php endif; ?>
