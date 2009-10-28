@@ -16,7 +16,8 @@ echo $form->create('Post',array('url' => '/posts/add'));
 <?php foreach ($posts as $row): ?>
 <tr>
 <td class="friendicon">
-<?php echo $row['Post']['user_id'] ?>
+<?php //echo $html->image('http://www.gravatar.com/avatar/'.md5($row['User']['mail']).'?s=40&r=G') ?>
+<?php echo $gravatar->image($row['User']['mail']) ?>
 </td>
 <td>
 <p class="murmur">

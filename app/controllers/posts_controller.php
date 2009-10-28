@@ -1,6 +1,7 @@
 <?php
 class PostsController extends AppController {
   var $name = 'Posts';
+  var $helpers = array('Gravatar');
   //var $scaffold;
   var $paginate = array(
     'order' => array('Post.id' => 'DESC'),
